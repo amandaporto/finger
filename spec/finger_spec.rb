@@ -3,8 +3,10 @@
 
 RSpec.describe Finger, type: :class do
   describe '#search' do
-    it "outputs 'searching...'" do
-      expect(subject.search).to eq('searching...')
+    it "returns an items from searchable" do
+      searchable = Nose
+      returned = subject.search(searchable)
+      expect(searchable::SEARCHABLES.any? { |s| returned.include? s }).to be true
     end
   end
 end
